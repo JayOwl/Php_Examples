@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>
+		Setting Up Your Development Environment
+		</title>
+		<link rel="stylesheet" href="style.css" />
+	</head>
+	<body>
+	<h1>Setting Up Your Development Environment</h1>
+	<p>In order to write and test PHP scripts the appropriate software must be installed and configured:</p>
+	<ol>
+		<li>
+			<h2>Apache Web Server + PHP + MySQL</h2>
+			<p>The dominant web server in the internet today is the open source Apache server. The PHP is a powerful open source scripting solution responsible for much online content delivery, including the main CMSs in use today.</p>
+			<ol type="a">
+				<li>Download the lastest stable <a href="http://www.wampserver.com/en/">WAMP (Windows)</a> or <a href="http://www.mamp.info/en/index.html">MAMP (Macintosh)</a> server/php package.</li>
+				<li>Install the package, taking the deafult settings as you go (be sure to install on a local hard drive (eg: C).</li>
+				<li>When prompted, choose "Start Web Sever"</li>
+				<li>The Wamp 'W' icon should appear in the lower right of the taskbar. Left clicking on this will reveal various options such as starting and stopping the server, and accessing the configuration files.</li>
+				<li>Locate the <code>www</code> folder in your WAMP installation. This is your server root. All scripts must be located here or in subdirectories. (Macintosh users may have the server root folder named <code>htdocs</code>)</li>
+				<li>We will secure your MySQL installation during a later session</li>
+				<li>
+					<strong>Test Your Web Server:</strong>
+					<ol>
+						<li>use a web browser to vist <code>http://localhost</code></li>
+						<li>if a page displays, your server is working fine. if you get an error, ensure the 'W' icon is not in the red state</li>
+						<li><strong>troubleshooting:</strong> if a page does not display, you may need to change the default port of your HTTP server:
+							<ul>
+								<li>Confirm if port is the problem. Click the Wamp 'W' icon and choose Apace > Service > Test Port 80. If port 80 is being used by another application, proceed with the following steps:</li>
+								<li>Click the 'W' icon > Apache > httpd.conf</li>
+								<li>Find the 'Listen 80' section and change to 'Listen 8080'. Save the change</li>
+								<li>'W' icon > Restart all services</li>
+								<li>Test your server using the new port: <code>http://localhost:8080</code></li>
+							</ul>
+						</li>
+						<li><strong>troubleshooting:</strong> if, when you test your localhost server, you get a message about not being authorized to access a remote server (a common error on laptops)
+							<ul>
+								<li>Instead of <code>http://localhost</code> use the literal localhost address <code>http://127.0.0.1</code></li>
+							</ul>
+						</li>
+					</ol>
+				</li>
+				<li>
+					<strong>Test PHP:</strong>
+					<ol>
+						<li>use a text editor (eg: notepad) to create a file named <code>hello_world.php</code></li>
+						<li>add the following in the file:<pre><code>&lt;?php
+	echo "Hello World!";
+?>
+</code></pre></li>
+						<li>save the file</li>
+						<li>test the file by using a web browser addressed <code>http://localhost/hello_world.php</code></li>
+					</ol>
+				</li>
+				<li>Set the correct timezone for PHP to use by changing the configuration file. Use the 'W' icon to open <code>php.ini</code>. Find the 'date.timezone' declaration and make the following changes - <br /><code>date.timezone = America/Los_Angeles</code><br />Save these changes and use the 'W' icon to restart all services.</li>			
+				<li>Macintosh Users Only: Ensure scripting errors are displayed by changing the configuration file. Locate and open the <code>php.ini</code> file. Find the 'display_errors' declaration and make the following changes, changin the 'Off' to 'On' - <br /><code>display_errors = On</code><br />Save these changes and restart all services.</li>			</ol>
+		</li>
+		<li>
+			<h2>Script Editor</h2>
+			<p>You may use any script editor of your choice, choose one you have access to and are comfortable with.
+			<ul>
+				<li><a href="http://www.adobe.com/ca/products/dreamweaver.html">Dreamweaver</a></li>
+				<li><a href="http://www.eclipse.org/pdt/downloads/">Eclipse for PHP</a></li>
+				<li><a href="http://www.editplus.com/">Editplus</a></li>
+				<li><a href="http://www.activestate.com/komodo-ide">Komodo</a></li>
+			<ul>
+		</li>
+	</ul>
+	</body>
+</html>
